@@ -1,5 +1,24 @@
 <h1>Contact me</h1>
 
+
+<h2>Family members</h2>
+
+<ul>
+  <% @relatives.each do |relative| %>
+    <li><%= relative.capitalize %></li>
+  <% end %>
+</ul>
+
+<h2>Choose a family member</h2>
+
+<form action="/contact"method="get">
+  <label for="relative">Type a name:</label>
+  <input id="relative" name="relative" type="text" value=" <%= params[:relative] %>" placeholder="Muv">
+  <input type="submit">
+</form>
+
 <p>Phone: 077*********</p>
 
 <p>Email: ************@hotmail.com</p>
+
+<p> <%= link_to "Back to Home", root_path %> </p>

@@ -1,10 +1,15 @@
 <h1>Home</h1>
 
 
- <%  %>
- <%# no print %>
- <%= Time.now %>
- <%# with = to print %>
+  <% current_time = Time.now  %>
+  <%# no print - shortcut is er %>
+
+  <p> The time is <%= current_time %> </p>
+  <%# with = to print - shortcut is pe %>
+
+  <p> <%= link_to "Contact Me", contact_path %> </p>
+  <p> <%= link_to "About Me", about_path %> </p>
+  <%# link_to is a ruby helper an html a tag %>
 
 
-<%# (ctrl + #) to comment %>
+  <%# (ctrl + /) to comment %>

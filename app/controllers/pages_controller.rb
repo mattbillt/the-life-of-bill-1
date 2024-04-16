@@ -4,6 +4,17 @@ class PagesController < ApplicationController
   end
 
   def contact
+
+    @relatives = ["muv", "alb", "looch", "darren", "nan"]
+
+    search = params[:relative]
+
+    if search
+      @relatives = @relatives.select do |relative|
+        relative.start_with? search.downcase
+      end
+    end
+
   end
 
   def home

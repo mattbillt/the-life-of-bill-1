@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   get "matches", to: "matches#index"
   get "matches/new", to: "matches#new"
-  get "matches/:id", to: "matches#show"
+  post "matches", to: "matches#create"
+  get "matches/:id", to: "matches#show", as: :match
 
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"

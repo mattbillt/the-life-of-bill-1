@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get "matches/new", to: "matches#new"
   post "matches", to: "matches#create"
   get "matches/:id", to: "matches#show", as: :match
+  get "matches/:id/edit", to: "matches#edit"
+  patch "matches/:id", to: "matches#update"
+  delete "matches/:id", to: "matches#destroy"
 
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"

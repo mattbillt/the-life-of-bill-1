@@ -3,3 +3,10 @@
 <p>Date: <%= @match.date %></p>
 <p>Location: <%= @match.location %></p>
 <p>Review: <%= @match.review %></p>
+
+<p><%= link_to 'Delete Match',
+  match_path(@match),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></p>
+
+<p><%= link_to 'Back to list', matches_path %></p>

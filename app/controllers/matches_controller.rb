@@ -8,13 +8,29 @@ class MatchesController < ApplicationController
   end
 
   def create
-    match = Match.new(match_params)
-    match.save
-    redirect_to match_path(match)
+    @match = Match.new(match_params)
+    @match.save
+    redirect_to match_path(@match)
   end
 
   def show
     @match = Match.find(params[:id])
+  end
+
+  def edit
+    @match = Match.find(params[:id])
+  end
+
+  def update
+    @match = Match.find(params[:id])
+    @match.update(match_params)
+    redirect_to match_path(@match)
+  end
+
+  def destroy
+    @match = Match.find(params[:id])
+    @match.destroy
+    redirect_to matches_path, status: :see_other
   end
 
   private

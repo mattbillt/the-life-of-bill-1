@@ -2,6 +2,8 @@
 
 <ul>
   <% @matches.each do |match| %>
-   <li> <%= match.name %></li>
+   <li> <%= link_to match.name, match_path(match) %></li>
   <% end %>
 </ul>
+
+<p><%= link_to 'Add a match', matches_new%></p>

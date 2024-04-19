@@ -4,6 +4,9 @@
 <p>Location: <%= @match.location %></p>
 <p>Review: <%= @match.review %></p>
 
+<p><%= link_to 'Edit Match', edit_match_path(@match) %></p>
+
+
 <p><%= link_to 'Delete Match',
   match_path(@match),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}

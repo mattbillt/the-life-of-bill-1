@@ -1,4 +1,7 @@
 class MatchesController < ApplicationController
+
+  before_action :set_match, only: [:show, :edit, :update, :destroy]
+
   def index
    @matches = Match.all
   end
@@ -14,21 +17,21 @@ class MatchesController < ApplicationController
   end
 
   def show
-    @match = Match.find(params[:id])
+    set_match
   end
 
   def edit
-    @match = Match.find(params[:id])
+    set_match
   end
 
   def update
-    @match = Match.find(params[:id])
+    set_match
     @match.update(match_params)
     redirect_to match_path(@match)
   end
 
   def destroy
-    @match = Match.find(params[:id])
+    set_match
     @match.destroy
     redirect_to matches_path, status: :see_other
   end
@@ -37,5 +40,9 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(:name, :date, :location, :review)
+  end
+
+  def set_match
+    @match = Match.find(params[:id])
   end
 end

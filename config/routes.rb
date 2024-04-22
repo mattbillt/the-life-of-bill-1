@@ -17,7 +17,17 @@ Rails.application.routes.draw do
   # get "matches/:id/edit", to: "matches#edit"
   # patch "matches/:id", to: "matches#update"
   # delete "matches/:id", to: "matches#destroy"
-  resources :matches
+  resources :matches do
+
+    # can use *collection* in place of *method* to create a page with 'best matches' e.g. /matches/best
+
+    member do
+      # is a custom 'show' page
+      # /matches/:id/competition
+      get :competition
+    end
+
+  end
 
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"

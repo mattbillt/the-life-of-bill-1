@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_17_082740) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_22_150730) do
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "match_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_comments_on_match_id"
+  end
+
   create_table "matches", force: :cascade do |t|
     t.string "name"
     t.string "date"
@@ -18,6 +26,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_17_082740) do
     t.string "review"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "competition"
   end
 
+  add_foreign_key "comments", "matches"
 end

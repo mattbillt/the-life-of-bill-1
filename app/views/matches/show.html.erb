@@ -2,6 +2,7 @@
 
 <p>Date: <%= @match.date %></p>
 <p>Location: <%= @match.location %></p>
+<p>Competition: <%= link_to @match.competition, competition_match_path %></p>
 <p>Review: <%= @match.review %></p>
 
 <p><%= link_to 'Edit Match', edit_match_path(@match) %></p>

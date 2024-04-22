@@ -20,6 +20,11 @@ class MatchesController < ApplicationController
     set_match
   end
 
+  def competition
+    set_match
+    @competition = @match.competition
+  end
+
   def edit
     set_match
   end

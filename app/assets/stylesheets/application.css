@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ /* lines added  */
+
+ @import "bootstrap";

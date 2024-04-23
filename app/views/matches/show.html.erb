@@ -1,16 +1,23 @@
-<h1>Match: <%= @match.name %></h1>
+<%= render @match %>
 
-<p>Date: <%= @match.date %></p>
-<p>Location: <%= @match.location %></p>
-<p>Competition: <%= link_to @match.competition, competition_match_path %></p>
-<p>Review: <%= @match.review %></p>
+<h2>All comments for <%= @match.name  %> </h2>
 
+<ul>
+  <% @match.comments.each do |comment| %>
+  <li>
+  <%= comment.content %>
+  <%= link_to 'Delete Comment', comment_path(comment), data: {turbo_method: :delete} %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a comment', new_match_comment_path(@match) %>
+
+<div>
 <p><%= link_to 'Edit Match', edit_match_path(@match) %></p>
-
-
 <p><%= link_to 'Delete Match',
   match_path(@match),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %></p>
-
 <p><%= link_to 'Back to list', matches_path %></p>
+</div>

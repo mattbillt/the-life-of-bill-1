@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   # delete "matches/:id", to: "matches#destroy"
   resources :matches do
 
-    # can use *collection* in place of *method* to create a page with 'best matches' e.g. /matches/best
+    resources :comments, only: [:new, :create]
 
+    # can use *collection* in place of *method* to create a page with 'best matches' e.g. /matches/best
     member do
       # is a custom 'show' page
       # /matches/:id/competition
@@ -29,9 +30,9 @@ Rails.application.routes.draw do
 
   end
 
+  resources :comments, only: [:destroy]
+
   get "/about", to: "pages#about"
   get "/contact", to: "pages#contact"
-
-
 
 end
